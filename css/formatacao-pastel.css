@@ -1,0 +1,71 @@
+@font-face{
+    font-family: JudasPriest;
+    src: url('../fontes/JudasPriest.ttf');
+}
+body{
+    padding-top: 0.5em ;
+    background-color: rgb(47, 102, 104);
+    color: black;
+    font-size:100%;/* 100% = 16px = 1em*/
+    text-shadow: 0.1em 0.1em 0.1em #ddf;
+}
+.logo{
+    padding-left: 0.1em;
+    font-family: JudasPriest;
+    color: rgb(207, 150, 84) ;
+    font-size: 3em;
+}
+
+header, main{
+    background-color: rgb(111, 183, 185);
+    width: 600px;
+    margin: 0 auto; 
+}
+header{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+h2{
+    padding-left: 0.1em;
+    color: brown;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#tabela-carrinho{
+    width: 100%;
+}
+#tabela-carrinho th, td{
+    padding: 0.5em;
+    border-bottom: #ccd 1px dotted;
+}
+#tabela-carrinho th{
+    font-size: 1em;
+    font-weight: 500;
+    text-align: left;
+}
+.coluna-pequena{
+    width: 8em;
+}
+.preco-produto, #total{
+    color: #cc4444;
+    font-weight:500;
+}
+.remove-carrinho{
+    font-size:0.8em;
+    
+}
+#tabela-carrinho td{
+    display:table-cell;
+    vertical-align: middle;
+}
+.capa{
+    height: 7.5em;
+}
+.coluna-capa{
+    width: 8em;
+}
+.texto-total{
+    text-align: right;
+}

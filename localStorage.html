@@ -1,0 +1,55 @@
+<!dOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>LocalStorage</title>
+        <meta charset="utf-8">
+        <style></style>
+        <script>
+            //Fazendo a VERIFICAÇÂO se o BROWSER suporta o LOCALSTORAGE
+            if(typeof(Storage)!="undefine"){
+
+                //O LocalStrorage é definido por chave e valor
+                //O setItem serve para criar 
+                localStorage.setItem("chave_aluno", "valor_Weliton");
+                
+                //O removeItem remove a chave
+                //localStorage.removeItem("canal", "CFBCursos");
+            
+                //O getItem obitem o valor da chave
+                // estou criando a variavel e pegando o VALOR da CHAVE com nome de CANAL
+
+                //1° jeito de pegar o valor, colocando getItem("CHAVE AQUI DENTRO") 
+                let nome = localStorage.getItem("chave_aluno");
+
+                //2° jeito de pegar o valor, colocando só a CHAVE
+                //EX:
+                //let nome = localStorage.chave_aluno;
+
+                //Estou escrevendo na tela o VALOR que peguei da CHAVE e coloquei DENTRO da VARIAVEL 
+                document.writeLine(nome);
+
+                //Fazendo um verificador de acessos 
+                if(localStorage.visitas){
+                    /*Estou pegando a VARIAVEL visitas covertendo para NUMBER, e fazendo a soma 
+                    dela mesma sendo NUMBER e acresentando +1 para cada acesso ele vai acresenta +1*/ 
+                    localStorage.visitas = Number(localStorage.visitas)+1;
+                }else{
+                    //Caso não tenha nem uma acesso vai mostrar valor 1
+                    //localStorage.setItem("visitas", 1);
+
+                    //outro jeito de fazer a mesma coisa
+                    localStorage.visitas=1;
+                    //Mostrando na tela a palavra Visitas + o Valor dentro da VARIAVEL visitas
+                    document.writeLine("Visitas: " + localStorage.visitas);
+                }
+            } else{
+                //Mostrando na tela que não tem suporte a Web Storage
+                document.writeLine("Sem suporte a Web Storage!");
+            }
+        </script>
+    </head>
+    <body>
+        
+        
+    </body>
+</html>

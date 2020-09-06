@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Formulário com LocalStorage</title>
+        <style>
+            #fconf{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                border: 1px solid #000;
+                background-color: #888;
+                padding: 20px;
+                border-radius: 5px;
+                display: none;
+            }
+        </style>
+        <script>
+        /**************************************************************************************************************/    
+            //Fazendo a VERIFICAÇÂO se o BROWSER suporta o LOCALSTORAGE
+            if(typeof(Storage)!="undefine"){
+
+                //Criando variaveis global para gravar as informações no localStorage
+                 let vcorf, vcort, vnome, vidade;
+             /**************************************************************************************************************/
+                //Fuction de gravar as informções no LocalStorage
+                function gravar(){
+                    //Colocando na variavel o valor que o usuário digitar com o ID: fnome 
+                    vnome=document.getElementById("fnome").value;
+                    vidade=document.getElementById("fidade").value;
+                    //Armazenando as informações no LocalStorage que vem das variaveis
+                    //Esse localStorage.corf é só para falar onde vai ser guardado o valor que vem da variavel 
+                    localStorage.corf=vcorf; 
+                    localStorage.cort=vcort; 
+                    localStorage.nome=vnome;
+                    localStorage.idade=vidade;
+                    
+                    // Trouxe o formulário para poder ocultar ele depois que eu salvar as informações 
+                    let form=document.getElementById("fconf");
+                    //oculta o formulário
+                    form.style.display="none";
+                }
+             /**************************************************************************************************************/
+                //Criando uma function para mudar as cores de fundo e texto
+                function defineCor(opcao,cor){
+                    if(opcao==1){
+                        
+                        //muda a cor do fundo
+                        document.body.style.backgroundColor=cor;
+                        //Adicionando valor na variavei
+                        vcorf=cor;
+                        
+                    }else{
+                        //Muda a cor do texto
+                        document.body.style.color=cor;
+                        //Adicionando valor na variavei
+                        vcort=cor;
+                    }
+                }
+             /**************************************************************************************************************/
+                //Criando a function para mostar o Fomulário
+                function mostraConf(){
+                    let form=document.getElementById("fconf");
+                    form.style.display="block";
+
+                }
+             /**************************************************************************************************************/ 
+                //Essa função serve para quando a pagína for iniciada ela carrega com as informações que foram salvas
+                function inicia(){
+                    //Esta verificando se Storage está habilitado 
+                    if(localStorage.nome){
+                        //Chamando as configurações que já estão gravadas no localStorage
+                        vcorf=localStorage.corf;
+                        vcort=localStorage.cort;
+                        vnome=localStorage.nome;
+                        vidade=localStorage.idade;
+                        //chamando a função defineCor 
+                        //   valores, cores   da VARIAVEL acima
+                        defineCor(1,vcorf);
+                        defineCor(2,vcort);
+                        //Pegando o nome que já estão salvo e mostrando no painel que está vazio no html com id="painel" lá em baixo 
+                        document.getElementById("painel").innerHTML="Bem vindo " + vnome +" Sua idade é: "+ vidade+ "<hr>";
+                      
+                    } 
+                } 
+                //Inicia a sessão ao carregar a página
+                window.addEventListener("load", inicia);
+             /**************************************************************************************************************/
+            }else{
+            //Mostrando na tela que não tem suporte a Web Storage
+            document.writeLine("Sem suporte a Web Storage!");
+            } 
+        </script>
+    </head>
+    <body>
+        <!--URL do videos videos que estudei para fazer esses códigos https://www.youtube.com/watch?v=L39I1_qVppQ&t=52s -->
+        <!--Formulario-->
+        <p>LocalStorage - Formulario com Cores</p>
+        <p id="painel"></p>
+
+        <!--Mostrando o formulário quando clico no botão com a função onclick-->
+        <button onclick="mostraConf()">Configurações</button>
+
+        <!--fconf é o id do identificador que estou usando para fazer as alterações de style-->
+        <form nome="fconf" id="fconf">
+            <label>Nome</label><br>
+            <!--Campo que digíta o nome-->
+            <input type="text" name="fnome" id="fnome" size="20"><br><br>
+            <label>Idade</label><br>
+            <input type="text" name="fidade" id="fidade" size="20"><br><br>
+            <label>Cor De Fundo</label><br>
+            <!--Chamado a FUNCTION defineCor com a opcao 1 e a cor do fundo no onclick -->
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#f00')">Vermelho<br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#0f0')">Verde<br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#00f')">Azul<br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#fff')">Branco<br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#000')">Preto<br><br>
+            <label>Cor Do Texto</label><br>
+            <!--Chamado a FUNCTION defineCor com a opcao 2 e a cor do texto no onclick -->
+            <input type="radio" name="fcorT" onclick="defineCor(2,'#000')">Preto<br>
+            <input type="radio" name="fcorT" onclick="defineCor(2,'#fff')">Branco<br>
+            <input type="button" value="Gravar" onclick="gravar()">
+        </form>
+        
+    </body>
+</html>

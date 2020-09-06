@@ -1,0 +1,84 @@
+<html lang="pt-br"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Criação do Carrinho</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/formatacao-pastel.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">Pasteis</h1>
+        </header>
+        <main>
+            <h2>Carrinho de compras</h2>
+            <table id="tabela-carrinho">
+                <thead>
+                    <tr>
+                        <!-- colspan serve para adicionar dois td dos itens do tbody abaixo do cabeçalho-->
+                        <th colspan="3">
+                            Itens para comprar 
+                        </th>
+                        <th class="coluna-pequena">
+                            Quantidade
+                        </th>
+                        <th class="coluna-pequena">
+                            Preço
+                        </th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="coluna-capa">
+                            <img src="imagens/pastel.png" class="capa">
+                           
+                        </td>
+                        <td>
+                            Pastel de Queijo
+                        </td>
+                        <td>
+                            <a id="removerCa" href="romover-carrinho">Tirar do carrinho</a>
+                        </td>    
+                        <td>
+                            <!-- Class quantidade serve para pegar a quantidade de produtos escolhido-->
+                            <input type="number" value="1" min="1" max="5" class="quantidade">
+                        </td>
+                        
+                        <td><span class="preco-produto">R$ 8,00</span></td>                    
+                    </tr> 
+                    <tr>
+                        <td class="coluna-capa">
+                            <img src="imagens/download.jpeg" class="capa">
+                           
+                        </td>
+                        <td>
+                            Coca cola
+                        </td>
+                        <td>
+                            <a id="removerCa" href="romover-carrinho">Tirar do carrinho</a>
+                        </td>    
+                        <td>
+                            <!-- 
+                                Class serve para quando tem mais de uma elemento repetido do sistema e eu quero usar todos que 
+                                tiverem com o identificador
+                             -->
+                            <input type="number" value="1" min="1" max="5" class="quantidade">
+                        </td>
+                        
+                        <td><span class="preco-produto">R$ 6,00</span></td>                    
+                    </tr> 
+                                      
+                </tbody>
+                <tfoot>
+                    <tr>
+                <td colspan="4" class="texto-total">Total da compra </td>  
+                    <!-- O ID serve para quando só tem um elemento ele é unico-->                      
+                        <td><span id="total">R$ 189,90</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+        <script src="js/funcoes-pasteis.js"></script>
+    </body>    
+</html>
